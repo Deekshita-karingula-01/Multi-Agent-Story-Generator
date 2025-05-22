@@ -62,7 +62,7 @@ flowchart TD
   Judge/revise loop ensures high-quality, child-appropriate output without manual work.
 
 - **Extensibility**  
-  Add new personas or tweak defaults via prompt_config.json—no code changes required.  
+  Add new personas or tweak defaults via prompt_config.json -> no code changes required.  
   Swap TTS engine (e.g., pyttsx3) for offline support.
 
 ---
@@ -166,9 +166,6 @@ flowchart TD
 
 ## 🔍 Additional Tips
 
-- **Caching PromptManager**  
-  In a web-app context, instantiate PromptManager once to avoid re-loading config on every request.
-
 - **Multi-Language Support**  
   Pass lang="es" (or other supported codes) to read_story_aloud() to generate stories in different languages.
 
@@ -176,9 +173,3 @@ flowchart TD
   Modify the judge prompt’s checklist if targeting other age ranges or tone (e.g., “exciting action stories” for older kids).
 
 ---
-
-## 🤝 Contributing & License
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-This project is released under the MIT License.
