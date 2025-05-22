@@ -43,12 +43,13 @@ flowchart TD
   D --> E[Agent 3: Generate story via OpenAI Chat API]
   E --> F[Agent 4: Judge Story quality]
   F -- "ACCEPT" --> G[Display Story]
-  F -- "REVISE" --> E[Recall the model]
+  F -- "REVISE" --> E
   G --> H[Ask user feedback]
-  H -- "HAPPY" --> I[Read Aloud?]
-  H -- "Feedback" --> D[Include feedback into prompt]
-  I -- "YES" --> J[Read the story]
-  I -- "No" --> G
+  H -- "HAPPY" --> J[Read Aloud?]
+  H -- "Feedback" --> I[Include feedback into prompt]
+  I --> D
+  J -- "YES" --> K[Read the story]
+  J -- "No" --> G
 ```
 
 ---
