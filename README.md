@@ -45,11 +45,10 @@ flowchart TD
   F -- "ACCEPT" --> G[Display Story]
   F -- "REVISE" --> E
   G --> H[Ask user feedback]
-  H -- "HAPPY" --> J[Read Aloud?]
-  H -- "Feedback" --> I[Include feedback into prompt]
+  H -- "NO FEEDBACK" --> J[Read Aloud?]
+  H -- "FEEDBACK" --> I[Include feedback into prompt]
   I --> D
   J -- "YES" --> K[Read the story]
-  J -- "No" --> G
 ```
 
 ---
