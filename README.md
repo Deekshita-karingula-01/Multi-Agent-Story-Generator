@@ -48,7 +48,7 @@ flowchart TD
   I --> H
   H --> J[User Feedback]
   J -- "NO" --> K{Read Aloud?}
-  J -- "YES" --> D
+  J -- "YES" --> E
   K -- "yes" --> L[Read the story via gTTS]
   K -- "no" --> M[End]
 ```
