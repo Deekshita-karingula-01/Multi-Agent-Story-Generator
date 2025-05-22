@@ -42,14 +42,13 @@ flowchart TD
   C --> D[Build system prompt from template + persona metadata]
   D --> E[Agent 3: Generate story via OpenAI Chat API]
   E --> F[Agent 4: Judge Story quality]
-  F --> "ACCEPT" --> G[Display Story]
+  F -- "ACCEPT" --> G[Display Story]
   F -- "REVISE" --> E[Recall the model]
-  I --> H
-  H --> J[User Feedback]
-  J -- "NO" --> K{Read Aloud?}
-  J -- "YES" --> E
-  K -- "yes" --> L[Read the story via gTTS]
-  K -- "no" --> M[End]
+  G --> H[Ask user feedback]
+  H -- "HAPPY" --> I[Read Aloud?]
+  H -- "Feedback" --> D[Include feedback into prompt]
+  I -- "YES" --> J[Read the story]
+  I -- "No" --> G
 ```
 
 ---
