@@ -34,72 +34,22 @@ This tool lets you enter a simple prompt (e.g. “Tell me a spooky pirate tale a
 
 ## 🏗️ Architecture & Flow
 
-+-----------------------------+
-|        User Input           |
-+-----------------------------+
-             |
-             v
-+-----------------------------+
-| extract_requirements_with_llm |
-+-----------------------------+
-             |
-             v
-+-----------------------------+
-| select_persona_with_llm     |
-+-----------------------------+
-             |
-             v
-+-----------------------------+
-| PromptManager.build_system_ |
-| message                     |
-+-----------------------------+
-             |
-             v
-+-----------------------------+
-| openai.chat.completions.    |
-| create                      |
-+-----------------------------+
-             |
-             v
-+-----------------------------+
-|        judge_model          |
-+-----------------------------+
-             |
-     +-------+-------+
-     |               |
-     v               v
-+-----------+   +-----------------------------+
-| ACCEPT    |   | REVISE                      |
-+-----------+   +-----------------------------+
-     |               |
-     |               v
-     |   +-----------------------------+
-     |   | call_model(revision_prompt) |
-     |   +-----------------------------+
-     |               |
-     +-------<-------+
-             |
-             v
-+-----------------------------+
-|      Display Story          |
-+-----------------------------+
-             |
-             v
-+-----------------------------+
-|        Read Aloud?          |
-+-----------------------------+
-     +-------+-------+
-     |               |
-     v               v
-+-----------+   +-------------+
-| Yes       |   | No          |
-+-----------+   +-------------+
-     |               |
-     v               v
-+-----------------------------+   +-------------+
-| read_story_aloud via gTTS   |   |   End       |
-+-----------------------------+   +-------------+
 
+```mermaid
+flowchart TD
+  A[User Input] --> B[extract_requirements_with_llm]
+  B --> C{Requirements JSON}
+  C --> D[select_persona_with_llm]
+  D --> E[PromptManager.build_system_message]
+  E --> F[openai.chat.completions.create]
+  F --> G[judge_model]
+  G -- "ACCEPT" --> H[Display Story]
+  G -- "REVISE" --> I[call_model(revision_prompt)]
+  I --> H
+  H --> J{Read Aloud?}
+  J -- "yes" --> K[read_story_aloud via gTTS]
+  J -- "no" --> L[End]
+```
 
 ---
 
