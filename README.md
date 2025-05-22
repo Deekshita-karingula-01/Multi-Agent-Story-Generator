@@ -120,15 +120,12 @@ flowchart TD
 
 1. Clone & Install  
    ```
-   git clone https://github.com/your-org/hippo-story-generator.git
-   cd hippo-story-generator
+   git clone https://github.com/Deekshita-karingula-01/Multi-Agent-Story-Generator.git
+   cd Multi-Agent-Story-Generator
    pip install -r requirements.txt
    ```
 
 2. Set Your API Key  
-   ```
-   export OPENAI_API_KEY="your_openai_api_key"
-   ```
 
 3. Run  
    ```
