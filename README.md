@@ -37,7 +37,7 @@ This tool lets you enter a simple prompt (e.g. “Tell me a spooky pirate tale a
 
 ```mermaid
 flowchart TD
-  A[User Input] --> B[Agent 1: Extract keywords from the input (tone, theme, lesson)]
+  A[User Input] --> B[Agent 1: Extract keywords from the input E.g: tone, theme, lesson]
   B --> C[Agent 2: Select persona based on user input]
   C --> D[Build system prompt from template + persona metadata]
   D --> E[Agent 3: Generate story via OpenAI Chat API]
