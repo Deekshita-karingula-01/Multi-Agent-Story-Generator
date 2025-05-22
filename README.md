@@ -37,14 +37,13 @@ This tool lets you enter a simple prompt (e.g. “Tell me a spooky pirate tale a
 
 ```mermaid
 flowchart TD
-  A[User Input] --> B[Extract user requirements from the input]
-  B --> C[Generate Requirements JSON]
-  C --> D[Select persona best suited for user input]
-  D --> E[Generate custom prompt for story generation]
-  E --> F[API call to Open AI]
-  F --> G[Judge the output]
-  G -- "ACCEPT" --> H[Display Story]
-  G -- "REVISE" --> I[Recall the model]
+  A[User Input] --> B[Agent 1: Extract keywords from the input (tone, theme, lesson)]
+  B --> C[Agent 2: Select persona based on user input]
+  C --> D[Build system prompt from template + persona metadata]
+  D --> E[Agent 3: Generate story via OpenAI Chat API]
+  E --> F[Agent 4: Judge Story quality]
+  F --> "ACCEPT" --> G[Display Story]
+  F -- "REVISE" --> E[Recall the model]
   I --> H
   H --> J[User Feedback]
   J -- "NO" --> K{Read Aloud?}
